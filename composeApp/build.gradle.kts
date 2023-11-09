@@ -27,8 +27,8 @@ kotlin {
             baseName = "ComposeApp"
             isStatic = true
 
-            export("com.arkivanov.decompose:decompose:2.1.0-compose-experimental-alpha-07")
-            export("com.arkivanov.essenty:lifecycle:1.2.0-alpha-06")
+            export(libs.arkivanov.decompose)
+            export(libs.essenty.lifecycle)
         }
     }
     
@@ -51,12 +51,12 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
-            implementation("org.kodein.di:kodein-di:7.20.2")
-            implementation("org.kodein.di:kodein-di-framework-compose:7.20.2")
+            implementation(libs.kodein.di)
+            implementation(libs.kodein.di.framework.compose)
 
-            api("com.arkivanov.decompose:decompose:2.1.0-compose-experimental-alpha-07")
-            api("com.arkivanov.decompose:extensions-compose-jetbrains:2.1.0-compose-experimental-alpha-07")
-            implementation("com.arkivanov.essenty:lifecycle:1.2.0-alpha-06")
+            api(libs.arkivanov.decompose)
+            api(libs.arkivanov.extensions.compose.jetbrains)
+            implementation(libs.essenty.lifecycle)
 
             api(libs.mvikotlin)
             api(libs.mvikotlin.main)

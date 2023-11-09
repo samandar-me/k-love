@@ -6,9 +6,6 @@ plugins {
     id("de.jensklingenberg.ktorfit") version "1.10.0"
 }
 
-val ktorVersion = "2.3.4"
-val ktorfitVersion = "1.10.0"
-
 kotlin {
     iosX64()
     iosArm64()
@@ -26,21 +23,23 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            implementation("de.jensklingenberg.ktorfit:ktorfit-lib:$ktorfitVersion")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+            // Ktor & Ktorfit
+            implementation(libs.ktorfit.lib)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.serialization.kotlinx.json)
 
-            //Only needed when you want to use Kotlin Serialization
-            implementation("io.ktor:ktor-client-serialization:$ktorVersion")
-            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-
+            // Coroutines
             implementation(libs.kotlinx.coroutines.core)
+
+            // DI - Kodein
+            implementation(libs.kodein.di)
         }
     }
 }
 
 dependencies {
-    with("de.jensklingenberg.ktorfit:ktorfit-ksp:$ktorfitVersion") {
+    with("de.jensklingenberg.ktorfit:ktorfit-ksp:1.10.0") {
         add("kspCommonMainMetadata", this)
         add("kspJvm", this)
         add("kspJvmTest", this)
