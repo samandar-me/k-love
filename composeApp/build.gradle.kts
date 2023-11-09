@@ -26,6 +26,9 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+
+//            export("com.arkivanov.decompose:decompose:2.1.0-compose-experimental-alpha-07")
+//            export("com.arkivanov.essenty:lifecycle:1.2.0-alpha-06")
         }
     }
     
@@ -47,6 +50,9 @@ kotlin {
             implementation(compose.material)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+
+           implementation("org.kodein.di:kodein-di:7.20.2")
+           implementation("org.kodein.di:kodein-di-framework-compose:7.20.2")
         }
     }
 }
