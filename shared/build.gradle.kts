@@ -27,7 +27,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation("de.jensklingenberg.ktorfit:ktorfit-lib:$ktorfitVersion")
-            //implementation("de.jensklingenberg.ktorfit:ktorfit-lib-light:$ktorfitVersion")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
             //Only needed when you want to use Kotlin Serialization
