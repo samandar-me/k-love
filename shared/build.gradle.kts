@@ -34,6 +34,8 @@ kotlin {
             implementation("io.ktor:ktor-client-serialization:$ktorVersion")
             implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
             implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+
+            implementation(libs.kotlinx.coroutines.core)
         }
     }
 }
