@@ -30,6 +30,8 @@ kotlin {
             export(libs.arkivanov.decompose)
             export(libs.essenty.lifecycle)
         }
+//        extraSpecAttributes["resource"] = "'build/cocoapods/framework/shared.framework/*.bundle'"
+//        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     
     sourceSets {
@@ -44,20 +46,25 @@ kotlin {
             implementation(compose.desktop.currentOs)
         }
         commonMain.dependencies {
+            // Compose
             implementation(projects.shared)
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+            implementation(compose.materialIconsExtended)
 
+            // DI
             implementation(libs.kodein.di)
             implementation(libs.kodein.di.framework.compose)
 
+            // Decompose
             api(libs.arkivanov.decompose)
             api(libs.arkivanov.extensions.compose.jetbrains)
             implementation(libs.essenty.lifecycle)
 
+            // MVI Kotlin
             api(libs.mvikotlin)
             api(libs.mvikotlin.main)
             api(libs.mvikotlin.extensions.coroutines)
