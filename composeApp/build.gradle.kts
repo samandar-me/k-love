@@ -26,12 +26,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-
-            export(libs.arkivanov.decompose)
-            export(libs.essenty.lifecycle)
         }
-//        extraSpecAttributes["resource"] = "'build/cocoapods/framework/shared.framework/*.bundle'"
-//        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     
     sourceSets {
@@ -64,16 +59,6 @@ kotlin {
             // DI
             implementation(libs.kodein.di)
             implementation(libs.kodein.di.framework.compose)
-
-            // Decompose
-            api(libs.arkivanov.decompose)
-            api(libs.arkivanov.extensions.compose.jetbrains)
-            implementation(libs.essenty.lifecycle)
-
-            // MVI Kotlin
-            api(libs.mvikotlin)
-            api(libs.mvikotlin.main)
-            api(libs.mvikotlin.extensions.coroutines)
         }
     }
 }

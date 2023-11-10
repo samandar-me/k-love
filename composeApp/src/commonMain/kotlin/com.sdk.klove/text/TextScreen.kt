@@ -2,15 +2,7 @@ package com.sdk.klove.text
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -36,6 +28,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sdk.klove.component.BackButton
 import com.sdk.klove.component.MyButton
 import com.sdk.klove.component.PercentageHeart
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -43,14 +36,20 @@ import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalMaterial3Api::class,ExperimentalResourceApi::class)
 @Composable
-fun TextScreen() {
+fun TextScreen(
+    onBack: () -> Unit
+) {
     var text by remember { mutableStateOf("") }
     Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeContent),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(Modifier.height(20.dp))
+        BackButton(
+            modifier = Modifier.align(Alignment.Start),
+            onBack = onBack
+        )
         PercentageHeart(0)
         TextField(
             modifier = Modifier
@@ -64,14 +63,12 @@ fun TextScreen() {
             textStyle = TextStyle(
                 color = Color.White,
                 fontSize = 24.sp,
-                fontStyle = FontStyle.Italic
             ),
             placeholder = {
                 Text(
                     text = "Boy",
                     color = Color.LightGray,
-                    fontSize = 24.sp,
-                    fontStyle = FontStyle.Italic
+                    fontSize = 24.sp
                 )
             },
             colors = TextFieldDefaults.textFieldColors(
@@ -104,7 +101,6 @@ fun TextScreen() {
                 textStyle = TextStyle(
                     color = Color.White,
                     fontSize = 24.sp,
-                    fontStyle = FontStyle.Italic,
                     textAlign = TextAlign.End
                 ),
                 placeholder = {
@@ -112,7 +108,6 @@ fun TextScreen() {
                         text = "Girl",
                         color = Color.LightGray,
                         fontSize = 24.sp,
-                        fontStyle = FontStyle.Italic,
                         textAlign = TextAlign.End
                     )
                 },

@@ -1,9 +1,7 @@
-package com.sdk.klove.main
+package com.sdk.klove
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Fingerprint
 import androidx.compose.material.icons.filled.Image
@@ -13,17 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.sdk.klove.component.MyButton
+import moe.tlaster.precompose.navigation.Navigator
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(nav: Navigator) {
     Column(
-        modifier = Modifier.fillMaxSize(.9f),
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(.9f)
+            .windowInsetsPadding(WindowInsets.safeContent),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -33,24 +37,31 @@ fun MainScreen() {
         )
         Text(
             text = "Love Calculator",
-            fontSize = 45.sp,
+            fontSize = 40.sp,
             color = Color.Red,
-            fontStyle = FontStyle.Italic
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.SansSerif
         )
         MyButton(
             text = "Text",
             icon = Icons.Default.TextSnippet,
-            onClick = {},
+            onClick = {
+                      nav.navigate("/text")
+                      },
             )
         MyButton(
             text = "Image",
             icon = Icons.Default.Image,
-            onClick = {},
+            onClick = {
+                nav.navigate("/image")
+                      },
             )
         MyButton(
             text = "Fingerprint",
             icon = Icons.Default.Fingerprint,
-            onClick = {},
+            onClick = {
+                nav.navigate("/finger")
+                      },
             )
     }
 }
