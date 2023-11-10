@@ -50,10 +50,16 @@ kotlin {
             implementation(projects.shared)
             implementation(compose.runtime)
             implementation(compose.foundation)
+            implementation(compose.animation)
             implementation(compose.material3)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(compose.materialIconsExtended)
+
+            val precompose_version = "1.5.7"
+
+            api("moe.tlaster:precompose:$precompose_version")
+            api("moe.tlaster:precompose-viewmodel:$precompose_version")
 
             // DI
             implementation(libs.kodein.di)
