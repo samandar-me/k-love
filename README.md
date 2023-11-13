@@ -1,3 +1,5 @@
+<img width="100%" alt="image" src="https://github.com/samandar-me/my-portfolio/assets/95674842/5035e8b5-5d90-42d4-9d3c-0f97a009f336">
+
 This is a Kotlin Multiplatform project targeting Android, iOS, Desktop, Server.
 
 * `/server` is for the Ktor server application.
@@ -17,5 +19,3 @@ This is a Kotlin Multiplatform project targeting Android, iOS, Desktop, Server.
 
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
-
-![image](https://github.com/samandar-me/k-love/assets/95674842/1d60baec-197f-450c-8555-4c98aea8f993)
