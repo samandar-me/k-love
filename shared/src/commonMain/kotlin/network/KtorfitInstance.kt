@@ -10,7 +10,7 @@ import kotlinx.serialization.json.Json
 
 object KtorfitInstance {
     private val ktorFit = ktorfit {
-        baseUrl("192.168.183.75:8080/")
+        baseUrl("http://10.10.12.40:8080/")
         httpClient(HttpClient {
             install(ContentNegotiation) {
                 json(Json { isLenient = true; ignoreUnknownKeys = true })
