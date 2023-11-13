@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 
 @RequiresApi(Build.VERSION_CODES.P)
 @Composable
-actual fun GalleryImage(modifier: Modifier) {
+actual fun GalleryImage(modifier: Modifier, onSuccess: () -> Unit) {
     var bitmap by remember { mutableStateOf<Bitmap?>(null) }
     val context = LocalContext.current
     val launcher = rememberLauncherForActivityResult(
@@ -30,6 +30,7 @@ actual fun GalleryImage(modifier: Modifier) {
         if (uri != null) {
             val source = ImageDecoder.createSource(context.contentResolver, uri)
             bitmap = ImageDecoder.decodeBitmap(source)
+            onSuccess()
         }
     }
     GalleryBox(

@@ -15,7 +15,7 @@ import java.io.File
 import javax.swing.JFileChooser
 
 @Composable
-actual fun GalleryImage(modifier: Modifier) {
+actual fun GalleryImage(modifier: Modifier, onSuccess: () -> Unit) {
     var selectedImage by remember { mutableStateOf<File?>(null) }
     val fileChooser = JFileChooser()
 
@@ -24,6 +24,7 @@ actual fun GalleryImage(modifier: Modifier) {
             val result = fileChooser.showOpenDialog(null)
             if(result == JFileChooser.APPROVE_OPTION) {
                 selectedImage = fileChooser.selectedFile
+                onSuccess()
             }
         }
     ) {

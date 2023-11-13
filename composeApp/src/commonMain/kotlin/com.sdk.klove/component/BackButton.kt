@@ -1,5 +1,6 @@
 package com.sdk.klove.component
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,7 +22,7 @@ fun BackButton(
 ) {
     IconButton(
         modifier = modifier,
-        onClick = onBack
+        onClick = onBack,
     ) {
         Icon(Icons.Default.ArrowBackIosNew, "back",tint = Color.Black)
     }

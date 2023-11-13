@@ -33,7 +33,9 @@ import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun FingerButton() {
+fun FingerButton(
+    onSuccess: () -> Unit
+) {
     var isLongClicked by remember { mutableStateOf(false) }
     var isScanning by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
@@ -58,6 +60,7 @@ fun FingerButton() {
                         isScanning = true
                         delay(3000L)
                         isScanning = false
+                        onSuccess()
                     }
                 }
             )

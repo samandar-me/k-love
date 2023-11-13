@@ -13,7 +13,7 @@ import platform.UIKit.UIViewContentMode
 
 @OptIn(ExperimentalForeignApi::class)
 @Composable
-actual fun GalleryImage(modifier: Modifier) {
+actual fun GalleryImage(modifier: Modifier,onSuccess: () -> Unit) {
     val imagePicker = ImagePicker(LocalUIViewController.current)
     GalleryBox(
         onClick = {
@@ -26,8 +26,9 @@ actual fun GalleryImage(modifier: Modifier) {
                     imagePicker.pickImage()
                 },
                 factory = {
+                    onSuccess()
                     UIImageView(UIImage(data)).apply {
-                        contentMode = UIViewContentMode.UIViewContentModeScaleToFill
+                        contentMode = UIViewContentMode.UIViewContentModeScaleAspectFill
                     }
                 },
                 update = {

@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sdk.klove.component.MyButton
 import moe.tlaster.precompose.navigation.Navigator
@@ -27,20 +28,21 @@ fun MainScreen(nav: Navigator) {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight(.9f)
-            .windowInsetsPadding(WindowInsets.safeContent),
+            .windowInsetsPadding(WindowInsets.safeGestures),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
         Image(
             painter = painterResource("lovers.png"),
-            contentDescription = "lovers"
+            contentDescription = "lovers",
+            modifier = Modifier.weight(1f)
         )
         Text(
             text = "Love Calculator",
             fontSize = 40.sp,
             color = Color.Red,
             fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.SansSerif
+            fontFamily = FontFamily.Serif
         )
         MyButton(
             text = "Text",

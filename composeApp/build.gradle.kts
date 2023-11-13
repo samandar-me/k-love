@@ -26,6 +26,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+
+
         }
     }
     
@@ -59,6 +61,12 @@ kotlin {
             // DI
             implementation(libs.kodein.di)
             implementation(libs.kodein.di.framework.compose)
+        }
+        iosMain.dependencies {
+
+        }
+        commonTest.dependencies {
+            
         }
     }
 }

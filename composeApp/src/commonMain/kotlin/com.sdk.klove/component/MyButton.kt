@@ -3,14 +3,7 @@ package com.sdk.klove.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -22,6 +15,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,6 +30,7 @@ fun MyButton(
 ) {
     Box(
         modifier = modifier
+            .padding(12.dp)
             .fillMaxWidth()
             .height(68.dp)
             .clip(RoundedCornerShape(12.dp))
@@ -54,7 +49,8 @@ fun MyButton(
                         ) else
                         listOf(Color.LightGray,Color.LightGray.copy(.9f))
                 )
-            ).clickable(enabled = enabled, role = Role.Button) {
+            )
+            .clickable(enabled = enabled, role = Role.Button) {
                 onClick()
             }
     ) {
@@ -67,7 +63,7 @@ fun MyButton(
                 text = text,
                 fontSize = 24.sp,
                 color = Color.White,
-                fontStyle = FontStyle.Italic
+                fontFamily = FontFamily.Monospace
             )
             if (icon != null) {
                 Spacer(Modifier.width(8.dp))
